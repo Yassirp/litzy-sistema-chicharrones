@@ -2,23 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "public/index.php",
-      "use": "@vercel/php"
-    },
-    {
-      "src": "public/**/*.php",
+      "src": "api/index.php",
       "use": "@vercel/php"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/public/$1"
+      "dest": "/api/index.php"
     }
-  ],
-  "functions": {
-    "public/**/*.php": {
-      "runtime": "@vercel/php"
-    }
-  }
+  ]
 }

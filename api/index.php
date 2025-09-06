@@ -4,15 +4,19 @@
  * Este archivo maneja todas las rutas de la aplicación en Vercel
  */
 
+// Configurar headers para HTML
+header('Content-Type: text/html; charset=UTF-8');
+
 // Obtener la ruta solicitada
 $request_uri = $_SERVER['REQUEST_URI'];
 $path = parse_url($request_uri, PHP_URL_PATH);
 
 // Remover la base path de Vercel
 $path = str_replace('/api/', '', $path);
+$path = ltrim($path, '/');
 
-// Si es la raíz, mostrar el login
-if ($path === '/' || $path === '' || $path === 'index.php') {
+// Si es la raíz o está vacía, mostrar el login
+if ($path === '' || $path === '/' || $path === 'index.php') {
     include '../public/index.php';
     return;
 }
@@ -42,6 +46,6 @@ if (isset($routes[$path])) {
 } else {
     // Si no existe, mostrar 404
     http_response_code(404);
-    echo "Página no encontrada: " . $path;
+    echo "<!DOCTYPE html><html><head><title>404 - Página no encontrada</title></head><body><h1>404 - Página no encontrada</h1><p>La página '$path' no existe.</p></body></html>";
 }
 ?>
