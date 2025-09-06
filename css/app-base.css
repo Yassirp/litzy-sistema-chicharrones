@@ -1,0 +1,905 @@
+/* === LITZY APP BASE STYLES === */
+/* Estilos base reutilizables para toda la aplicación */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ff6a00 0%, #ff8c00 50%, #ffa500 100%);
+    min-height: 100vh;
+    color: #333;
+    overflow-x: hidden;
+    padding-bottom: 100px;
+}
+
+.app-container {
+    max-width: 100%;
+    margin: 0 auto;
+    background: transparent;
+}
+
+/* === HEADER MODERNO === */
+.app-header {
+    background: linear-gradient(135deg, #ff6a00 0%, #ff8c00 100%);
+    padding: 1.5rem 1rem;
+    box-shadow: 0 4px 20px rgba(255, 106, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.app-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+.user-details h1 {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.user-details p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+.header-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* === BOTONES MODERNOS === */
+.btn-modern {
+    background: linear-gradient(135deg, #ff6a00, #ff8c00);
+    border: none;
+    border-radius: 12px;
+    padding: 0.8rem 1.5rem;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 15px rgba(255, 106, 0, 0.3);
+}
+
+.btn-modern:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 106, 0, 0.4);
+    color: white;
+}
+
+.btn-modern:active {
+    transform: translateY(0);
+}
+
+.btn-modern.success {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.btn-modern.success:hover {
+    box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+}
+
+.btn-modern.danger {
+    background: linear-gradient(135deg, #dc3545, #fd7e14);
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+}
+
+.btn-modern.danger:hover {
+    box-shadow: 0 8px 25px rgba(220, 53, 69, 0.4);
+}
+
+.btn-modern.secondary {
+    background: linear-gradient(135deg, #6c757d, #868e96);
+    box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
+}
+
+.btn-modern.secondary:hover {
+    box-shadow: 0 8px 25px rgba(108, 117, 125, 0.4);
+}
+
+/* === SECCIONES === */
+.section {
+    padding: 1.5rem 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    margin: 1rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ff6a00, #ff8c00);
+}
+
+.section-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ff6a00;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* === TABLA MODERNA === */
+.table-modern {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.table-modern table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-modern thead {
+    background: linear-gradient(135deg, #ff6a00, #ff8c00);
+    color: white;
+}
+
+.table-modern th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.table-modern td {
+    padding: 1rem;
+    border-bottom: 1px solid #f8f9fa;
+    vertical-align: middle;
+}
+
+.table-modern tbody tr:hover {
+    background: rgba(255, 106, 0, 0.05);
+}
+
+.table-modern tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* === BADGES MODERNOS === */
+.badge-modern {
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-modern.success {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+}
+
+.badge-modern.warning {
+    background: linear-gradient(135deg, #ffc107, #ffb300);
+    color: #856404;
+}
+
+.badge-modern.danger {
+    background: linear-gradient(135deg, #dc3545, #fd7e14);
+    color: white;
+}
+
+/* === FORMULARIOS MODERNOS === */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #ff6a00;
+    box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.1);
+}
+
+.form-select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background: white;
+    cursor: pointer;
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: #ff6a00;
+    box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.1);
+}
+
+/* === MODALES MODERNOS === */
+.modal-content {
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #ff6a00, #ff8c00);
+    color: white;
+    border-radius: 20px 20px 0 0;
+    border: none;
+    padding: 1.5rem;
+}
+
+.modal-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.modal-footer {
+    border: none;
+    padding: 1rem 2rem 2rem;
+    background: #f8f9fa;
+    border-radius: 0 0 20px 20px;
+}
+
+/* === CARD MODERNOS === */
+.card-modern {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-modern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ff6a00, #ff8c00);
+}
+
+.card-modern:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(255, 106, 0, 0.2);
+}
+
+/* === ALERTAS MODERNAS === */
+.alert-modern {
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 500;
+}
+
+.alert-modern.success {
+    background: linear-gradient(135deg, #d4edda, #c3e6cb);
+    color: #155724;
+    border-left: 4px solid #28a745;
+}
+
+.alert-modern.warning {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    color: #856404;
+    border-left: 4px solid #ffc107;
+}
+
+.alert-modern.danger {
+    background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+    color: #721c24;
+    border-left: 4px solid #dc3545;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .app-header {
+        padding: 1.2rem 1rem;
+    }
+    
+    .user-details h1 {
+        font-size: 1.2rem;
+    }
+    
+    .user-details p {
+        font-size: 0.8rem;
+    }
+    
+    .section {
+        margin: 0.5rem;
+        padding: 1rem;
+    }
+    
+    .table-modern th,
+    .table-modern td {
+        padding: 0.8rem 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .btn-modern {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .app-header {
+        padding: 1rem 0.8rem;
+    }
+    
+    .user-avatar {
+        height: 45px;
+        font-size: 1.3rem;
+    }
+    
+    .user-details h1 {
+        font-size: 1.1rem;
+    }
+    
+    .section {
+        margin: 0.3rem;
+        padding: 0.8rem;
+    }
+    
+    .table-modern th,
+    .table-modern td {
+        padding: 0.6rem 0.3rem;
+        font-size: 0.75rem;
+    }
+    
+    .btn-modern {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* === ANIMACIONES === */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* === MEJORAS TÁCTILES === */
+.btn-modern, .card-modern {
+    -webkit-tap-highlight-color: rgba(255, 106, 0, 0.2);
+    touch-action: manipulation;
+}
+
+/* === SCROLL SUAVE === */
+html {
+    scroll-behavior: smooth;
+}
+
+/* === GRID DE PRODUCTOS === */
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.producto-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.producto-card:hover {
+    transform: translateY(-5px);
+    border-color: #ff6a00;
+    box-shadow: 0 8px 25px rgba(255, 106, 0, 0.2);
+}
+
+/* === RESPONSIVE PARA PRODUCTOS === */
+@media (max-width: 768px) {
+    .productos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .productos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+    }
+}
+
+/* === OPTIMIZACIÓN PARA DISPOSITIVOS CON NOTCH === */
+@supports (padding: max(0px)) {
+    .app-header {
+        padding-left: max(1rem, env(safe-area-inset-left));
+        padding-right: max(1rem, env(safe-area-inset-right));
+    }
+    
+    .section {
+        margin-left: max(0.5rem, env(safe-area-inset-left));
+        margin-right: max(0.5rem, env(safe-area-inset-right));
+    }
+}
+
+/* === OPTIMIZACIONES DE IMÁGENES === */
+/* Lazy loading y optimizaciones de rendimiento */
+img {
+    loading: lazy !important;
+    max-width: 100% !important;
+    height: auto !important;
+    transition: opacity 0.3s ease !important;
+}
+
+/* Imágenes sin efectos de carga */
+img {
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+
+/* Optimización para imágenes de productos */
+.producto-card img {
+    width: 100% !important;
+    height: 150px !important;
+    object-fit: cover !important;
+    border-radius: 12px !important;
+    transition: transform 0.3s ease !important;
+    /* Optimizaciones de rendimiento */
+    image-rendering: -webkit-optimize-contrast !important;
+    image-rendering: crisp-edges !important;
+    will-change: transform !important;
+    backface-visibility: hidden !important;
+    transform: translateZ(0) !important;
+}
+
+.producto-card img:hover {
+    transform: scale(1.05) !important;
+}
+
+/* === ESTILOS ESPECÍFICOS PARA VENTAS.PHP === */
+
+/* Mejorar el scroll en la página de ventas */
+body {
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+
+.app-container {
+    padding-bottom: 140px !important; /* Más espacio para el navbar y botón */
+}
+
+/* Asegurar que el contenido sea scrolleable */
+.section {
+    margin-bottom: 2rem !important;
+}
+
+/* Mejorar el espaciado del total */
+.total-section {
+    margin-bottom: 1rem !important;
+    padding-bottom: 0.5rem !important;
+}
+
+/* Asegurar que el botón sea visible */
+#finalizar {
+    margin-top: 0.75rem !important;
+    margin-bottom: 0.5rem !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+/* Alinear mejor los botones sin forzar altura uniforme */
+.producto-card {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.producto-card > div:last-child {
+    margin-top: auto !important;
+    padding-top: 1rem !important;
+}
+
+.producto-card h5 {
+    min-height: 2.4rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Estilo para el botón Eliminar */
+.btn-eliminar {
+    background: linear-gradient(135deg, #dc3545, #c82333) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 0.5rem 1rem !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+}
+
+.btn-eliminar:hover {
+    background: linear-gradient(135deg, #c82333, #bd2130) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3) !important;
+}
+
+.btn-eliminar:active {
+    transform: translateY(0) !important;
+}
+
+/* Mejorar el scroll en móvil */
+@media (max-width: 768px) {
+    .app-container {
+        padding-bottom: 120px !important;
+    }
+    
+    .section {
+        margin-bottom: 1.25rem !important;
+    }
+    
+    .total-section {
+        margin-bottom: 0.75rem !important;
+        padding-bottom: 0.25rem !important;
+    }
+    
+    #finalizar {
+        margin-top: 0.5rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+}
+
+/* === ESTILOS DEL NAVBAR === */
+
+.bottom-navbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 85px;
+    background: linear-gradient(135deg, rgba(18, 18, 18, 0.95), rgba(28, 28, 30, 0.95));
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-top: 1px solid rgba(255, 106, 0, 0.3);
+    box-shadow: 0 -15px 50px rgba(0, 0, 0, 0.4), 0 -8px 30px rgba(255, 106, 0, 0.15);
+    z-index: 9999;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+.bottom-navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ff6a00, #ff8c00, #ffa500);
+    opacity: 0.8;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    padding: 0 10px;
+    position: relative;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #8e8e93;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    padding: 8px 12px;
+    border-radius: 20px;
+    min-width: 60px;
+    height: 60px;
+    background: transparent;
+    font-weight: 500;
+}
+
+.nav-item:hover {
+    color: #ff6a00;
+    background: linear-gradient(135deg, rgba(255, 106, 0, 0.15), rgba(255, 140, 0, 0.08));
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 106, 0, 0.25);
+}
+
+.nav-item.active {
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff6a00, #ff8c00);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(255, 106, 0, 0.4);
+}
+
+.nav-item.logout {
+    color: #ff6b6b;
+}
+
+.nav-item.logout:hover {
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff6b6b, #ff5252);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+}
+
+.nav-item.logout.active {
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff6b6b, #ff5252);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(255, 107, 107, 0.4);
+}
+
+.nav-icon {
+    font-size: 20px;
+    margin-bottom: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.nav-item.active .nav-icon {
+    transform: scale(1.1);
+}
+
+.nav-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+    color: inherit;
+}
+
+.nav-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    background: linear-gradient(135deg, #ff6a00, #ff8c00);
+    border-radius: 50%;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    opacity: 0;
+}
+
+.nav-item.active .nav-indicator {
+    width: 60px;
+    height: 60px;
+    opacity: 0.2;
+}
+
+.nav-item.logout .nav-indicator {
+    background: linear-gradient(135deg, #ff6b6b, #ff5252);
+}
+
+.nav-item.active .nav-indicator::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+/* Animación de pulso para el item activo */
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.15; }
+    50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.25; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 0.15; }
+}
+
+.nav-item.active .nav-indicator {
+    animation: pulse 2s infinite;
+}
+
+/* Responsive para pantallas más pequeñas */
+@media (max-width: 480px) {
+    .bottom-navbar {
+        height: 80px;
+    }
+    
+    .nav-item {
+        min-width: 50px;
+        height: 55px;
+        padding: 6px 8px;
+    }
+    
+    .nav-icon {
+        font-size: 18px;
+    }
+    
+    .nav-label {
+        font-size: 10px;
+    }
+}
+
+/* Optimización para dispositivos con notch */
+@supports (padding: max(0px)) {
+    .bottom-navbar {
+        padding-bottom: max(0px, env(safe-area-inset-bottom));
+        height: calc(85px + max(0px, env(safe-area-inset-bottom)));
+    }
+}
+
+/* Asegurar que no haya espacios */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Forzar el navbar al fondo */
+.bottom-navbar {
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Efecto de deslizamiento suave */
+.nav-item {
+    -webkit-tap-highlight-color: rgba(255, 106, 0, 0.2);
+    touch-action: manipulation;
+}
+
+/* Mejora para pantallas grandes */
+@media (min-width: 768px) {
+    .bottom-navbar {
+        width: 500px;
+        left: 50%;
+        transform: translateX(-50%) translateZ(0);
+        border-radius: 30px 30px 0 0;
+        margin: 0;
+        box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.5), 0 -10px 40px rgba(255, 106, 0, 0.2);
+    }
+    
+    .bottom-navbar::before {
+        border-radius: 30px 30px 0 0;
+    }
+    
+    .nav-item {
+        border-radius: 25px;
+    }
+}
+
+/* Eliminar cualquier espacio residual */
+.bottom-navbar {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    outline: none !important;
+}
+
+/* Asegurar que el contenedor no tenga márgenes */
+.nav-container {
+    margin: 0 !important;
+    padding: 0 10px !important;
+    height: 100% !important;
+}
+
+/* Animación de ripple */
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}

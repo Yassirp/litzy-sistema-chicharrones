@@ -1,0 +1,188 @@
+/* === FIXES ESPECÍFICOS PARA iOS/iPhone === */
+
+/* Forzar carga de estilos en iOS */
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+    .app-container {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    
+    .app-header {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    .section {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    .card-modern {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+}
+
+/* Asegurar que el fondo se cargue */
+.app-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff6a00 0%, #ff8c00 50%, #ffa500 100%) !important;
+    position: relative;
+}
+
+/* Forzar renderizado en iOS */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Asegurar que el navbar esté visible */
+body {
+    padding-bottom: 85px !important;
+    margin: 0 !important;
+    overflow-x: hidden;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-bottom: 80px !important;
+    }
+}
+
+/* Forzar carga de gradientes en iOS */
+.app-header {
+    background: linear-gradient(135deg, #ff6a00 0%, #ff8c00 100%) !important;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+/* Asegurar que los botones funcionen en iOS */
+.btn-modern {
+    -webkit-tap-highlight-color: rgba(255, 106, 0, 0.2);
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Fix para el navbar en iOS */
+.bottom-navbar {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Asegurar que las animaciones funcionen en iOS */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(30px);
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    -webkit-animation: fadeInUp 0.6s ease-out;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Fix para el viewport en iOS */
+@supports (-webkit-touch-callout: none) {
+    .app-container {
+        min-height: -webkit-fill-available;
+    }
+    
+    body {
+        min-height: -webkit-fill-available;
+    }
+}
+
+/* Asegurar que los estilos se apliquen después de la carga */
+.ios-loaded .app-container {
+    opacity: 1;
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+}
+
+.app-container {
+    opacity: 0;
+}
+
+/* Fix para el scroll en iOS */
+.app-container {
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+}
+
+/* === FIXES ESPECÍFICOS PARA ANDROID === */
+
+/* Detectar Android y aplicar estilos */
+@media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: .001dpcm) {
+    .app-container {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    
+    .stat-card, .action-card {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        will-change: transform;
+    }
+}
+
+/* Forzar estilos en Android */
+.android-loaded .app-container {
+    opacity: 1 !important;
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+}
+
+.android-loaded .stat-card {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.android-loaded .action-card {
+    background: white !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+/* Fix para Chrome en Android */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .app-container {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    
+    .stat-card, .action-card {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}

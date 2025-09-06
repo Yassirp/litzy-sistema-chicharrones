@@ -1,0 +1,61 @@
+# === LITZY - SISTEMA DE CAJA ===
+# Archivos y directorios que NO deben subirse a GitHub
+
+# === CONFIGURACIONES SENSIBLES ===
+config/db.php
+config/production.php
+*.env
+.env.local
+.env.production
+
+# === LOGS Y ARCHIVOS TEMPORALES ===
+logs/
+*.log
+*.tmp
+*.temp
+
+# === UPLOADS DE USUARIOS ===
+uploads/
+# Mantener solo la estructura, no los archivos subidos
+!uploads/.gitkeep
+
+# === BACKUPS Y ARCHIVOS DE SISTEMA ===
+*.bak
+*.backup
+*.sql
+database.sql
+*.dump
+
+# === ARCHIVOS DE DESARROLLO ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# === ARCHIVOS DE SISTEMA ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === ARCHIVOS DE PHP ===
+composer.phar
+vendor/
+composer.lock
+
+# === ARCHIVOS DE CONFIGURACIÓN LOCAL ===
+config/local.php
+config/development.php
+
+# === ARCHIVOS DE INSTALACIÓN ===
+install.php
+setup.php
+
+# === ARCHIVOS DE SEGURIDAD ===
+.htaccess
+web.config
+
+# === ARCHIVOS DE LOGS DE SEGURIDAD ===
+security.log
+access.log
+error.log
