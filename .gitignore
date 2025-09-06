@@ -15,7 +15,8 @@ logs/
 *.temp
 
 # === UPLOADS DE USUARIOS ===
-uploads/
+# Comentado para permitir subir imágenes de ejemplo
+# uploads/
 # Mantener solo la estructura, no los archivos subidos
 !uploads/.gitkeep
 

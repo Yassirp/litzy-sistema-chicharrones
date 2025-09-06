@@ -1,0 +1,37 @@
+[build]
+  # Directorio que se publicará
+  publish = "public"
+  
+  # Comando de build (dejar vacío para PHP)
+  command = ""
+  
+  # Directorio de funciones (si usas serverless)
+  functions = "netlify/functions"
+
+# Redirecciones para PHP
+[[redirects]]
+  from = "/*"
+  to = "/public/index.php"
+  status = 200
+
+# Headers para imágenes
+[[headers]]
+  for = "/uploads/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    Content-Type = "image/jpeg"
+
+# Headers para CSS y JS
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+# Configuración de PHP
+[build.environment]
+  PHP_VERSION = "8.1"
